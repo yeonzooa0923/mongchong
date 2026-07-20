@@ -140,15 +140,15 @@
                     </a>
                 </div>
                 <!-- 데스크탑 메뉴 -->
-                <nav class="hidden md:flex space-x-4 items-center font-bold text-sm tracking-wider uppercase">
-                    <a href="#profile" class="text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">프로필</a>
-                    <a href="#contents-games" class="text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">이달의 플랜 & 종겜</a>
-                    <a href="#outfits" class="text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">방셀 의상</a>
-                    <a href="#homework" class="text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">방셀 숙제</a>
-                    <a href="#songlist" class="text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">노래책</a>
+                <nav class="hidden md:flex space-x-1 lg:space-x-4 items-center font-bold text-xs lg:text-sm tracking-wider uppercase flex-nowrap">
+                    <a href="#profile" class="whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-1.5 lg:px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">프로필</a>
+                    <a href="#contents-games" class="whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-1.5 lg:px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">이달의 플랜 & 종겜</a>
+                    <a href="#outfits" class="whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-1.5 lg:px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">방셀 의상</a>
+                    <a href="#homework" class="whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-1.5 lg:px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">방셀 숙제</a>
+                    <a href="#songlist" class="whitespace-nowrap text-slate-700 dark:text-slate-200 hover:text-amber-500 dark:hover:text-accent px-1.5 lg:px-3 py-2 rounded-xl transition-all hover:bg-slate-100 dark:hover:bg-white/5">노래책</a>
                     
                     <!-- 테마 토글 버튼 (데스크탑) -->
-                    <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-accent flex items-center justify-center transition-all shadow-sm ml-2" title="테마 변경">
+                    <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-accent flex items-center justify-center transition-all shadow-sm ml-1" title="테마 변경">
                         <i id="theme-toggle-icon" class="fa-solid fa-moon text-lg"></i>
                     </button>
                 </nav>
@@ -704,14 +704,25 @@
                     <!-- 대표 배너 및 아바타 설정 -->
                     <div>
                         <h4 class="text-sm mb-2"><i class="fa-regular fa-image text-amber-500 dark:text-accent mr-1"></i> 대표 이미지</h4>
-                        <div class="space-y-2">
-                            <div>
-                                <label class="block text-slate-500 dark:text-slate-400 mb-1">상단 커버 URL 이미지</label>
-                                <input type="text" id="edit-profile-banner" class="w-full bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-1 focus:ring-accent p-3 outline-none" placeholder="이미지 URL 주소를 입력하세요.">
+                        <div class="space-y-3">
+                            <div class="p-3 bg-slate-50 dark:bg-slate-950/50 rounded-xl border border-dashed border-amber-500/20 dark:border-accent/25">
+                                <span class="block text-amber-600 dark:text-accent font-extrabold mb-2 text-xs"><i class="fa-solid fa-cloud-arrow-up"></i> 상단 커버 배너 설정</span>
+                                <div class="space-y-2 text-[11px]">
+                                    <div>
+                                        <label class="block text-slate-500 dark:text-slate-400 mb-1">방법 A: 배너 사진 업로드</label>
+                                        <input type="file" id="edit-profile-banner-file" accept="image/png, image/jpeg, image/jpg, image/webp" class="w-full bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-slate-900 dark:text-white rounded-lg p-2 outline-none font-bold" onchange="document.getElementById('edit-profile-banner').value=''">
+                                    </div>
+                                    <div>
+                                        <label class="block text-slate-500 dark:text-slate-400 mb-1">방법 B: 외부 이미지 주소(URL)</label>
+                                        <input type="text" id="edit-profile-banner" class="w-full bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-slate-900 dark:text-white rounded-lg p-2.5 outline-none" placeholder="https://..." oninput="if(this.value.trim()){document.getElementById('edit-profile-banner-file').value=''}">
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-slate-500 dark:text-slate-400 mb-1">아바타 프로필 URL 이미지</label>
-                                <input type="text" id="edit-profile-avatar" class="w-full bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-1 focus:ring-accent p-3 outline-none" placeholder="이미지 URL 주소를 입력하세요.">
+                            <div class="p-3 bg-slate-50 dark:bg-slate-950/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <span class="block text-slate-600 dark:text-slate-300 font-extrabold mb-1 text-xs"><i class="fa-solid fa-arrows-spin"></i> 아바타 프로필 자동 연동</span>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-normal font-medium">
+                                    하단의 <strong>SOOP 방송국 링크</strong>를 올바르게 작성하시면 별도 수동 입력 없이 해당 숲 ID의 공식 아바타로 실시간 자동 연동됩니다.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1198,18 +1209,42 @@
             }
         }
 
+        function extractSoopId(soopUrl) {
+            if (!soopUrl) return 'mongggee';
+            const cleaned = soopUrl.trim();
+            // Match sooplive.com/station/ID, sooplive.co.kr/ID, or afreecatv.com/ID
+            let match = cleaned.match(/(?:sooplive\.com\/station\/|sooplive\.co\.kr\/|afreecatv\.com\/)([a-zA-Z0-9_]+)/i);
+            if (match && match[1]) {
+                return match[1];
+            }
+            if (/^[a-zA-Z0-9_]+$/.test(cleaned)) {
+                return cleaned;
+            }
+            return 'mongggee';
+        }
+
+        function getAutoProfileAvatarUrl(soopUrl) {
+            const id = extractSoopId(soopUrl);
+            const prefix = id.substring(0, 2);
+            return `https://stimg.afreecatv.com/LOGO/${prefix}/${id}/${id}.jpg`;
+        }
+
         function renderProfile() {
             const bannerImg = document.getElementById('profile-banner-img');
             if (bannerImg) {
                 bannerImg.src = globalProfileData.bannerUrl || defaultProfileData.bannerUrl;
             }
 
+            // 아바타 수동 주소 대신 SOOP ID 기준 실시간 자동 연동 처리
+            const socials = globalProfileData.socials || defaultProfileData.socials || {};
+            const soopLinkUrl = socials.soop || "https://www.sooplive.com/station/mongggee";
+            const autoAvatarUrl = getAutoProfileAvatarUrl(soopLinkUrl);
+            
             const avatarImg = document.getElementById('profile-avatar-img');
-            if (avatarImg && globalProfileData.avatarUrl) {
-                avatarImg.src = globalProfileData.avatarUrl;
+            if (avatarImg) {
+                avatarImg.src = autoAvatarUrl;
             }
 
-            const socials = globalProfileData.socials || defaultProfileData.socials || {};
             const soopLink = document.getElementById('profile-soop-link');
             if (soopLink) soopLink.href = socials.soop || '#';
             
@@ -1976,8 +2011,8 @@
         function openProfileEditModal() {
             const modal = document.getElementById('profile-edit-modal');
             
+            document.getElementById('edit-profile-banner-file').value = '';
             document.getElementById('edit-profile-banner').value = globalProfileData.bannerUrl || '';
-            document.getElementById('edit-profile-avatar').value = globalProfileData.avatarUrl || '';
             document.getElementById('edit-profile-intro').value = globalProfileData.introText || ''; 
             document.getElementById('edit-profile-tags').value = (globalProfileData.tags || []).join(', ');
             
@@ -2048,11 +2083,29 @@
             renderEditDdays();
         }
 
-        function saveProfileChanges() {
+        async function saveProfileChanges() {
             const parse = (str) => str.split(',').map(item => item.trim()).filter(item => item !== '');
             
-            globalProfileData.bannerUrl = document.getElementById('edit-profile-banner').value.trim();
-            globalProfileData.avatarUrl = document.getElementById('edit-profile-avatar').value.trim();
+            const bannerFileInput = document.getElementById('edit-profile-banner-file');
+            const bannerUrlInput = document.getElementById('edit-profile-banner').value.trim();
+            
+            let finalBannerUrl = globalProfileData.bannerUrl;
+            
+            if (bannerFileInput.files && bannerFileInput.files[0]) {
+                showToast("배너 파일 인코딩 및 최적화 중... ⏳");
+                try {
+                    finalBannerUrl = await compressImage(bannerFileInput.files[0], 1200, 600, 0.85);
+                } catch (err) {
+                    showToast("배너 이미지 변환 실패. 이전 배너를 보존합니다.");
+                }
+            } else if (bannerUrlInput) {
+                finalBannerUrl = bannerUrlInput;
+            }
+            
+            globalProfileData.bannerUrl = finalBannerUrl;
+            // 아바타는 SOOP 링크 연동으로 변경되어 개별 저장 불필요
+            globalProfileData.avatarUrl = ""; 
+            
             globalProfileData.introText = document.getElementById('edit-profile-intro').value; 
             globalProfileData.tags = parse(document.getElementById('edit-profile-tags').value);
             
@@ -2085,7 +2138,7 @@
             }
             globalProfileData.ddays = savedDdays;
 
-            updateFirestore('profile', globalProfileData); 
+            await updateFirestore('profile', globalProfileData); 
             renderProfile(); 
             closeProfileEditModal();
             showToast("몽총님의 대표 프로필 정산 정보 수정 완료 ⭐");
